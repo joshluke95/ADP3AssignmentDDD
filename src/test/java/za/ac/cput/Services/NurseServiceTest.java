@@ -44,7 +44,7 @@ class NurseServiceTest {
             );
 
     @Test
-    void a_create()
+    void create()
     {
         Nurse created = service.create(nurse1);
         Nurse created2 = service.create(nurse2);
@@ -57,14 +57,18 @@ class NurseServiceTest {
     }
 
     @Test
-    void b_read() {
-        Nurse read = service.read(nurse1.nurseID);
-        Assertions.assertNotNull(read);
-        System.out.println("Read: " + read);
+    void read() {
+        boolean read1 = service.read(nurse1.nurseID);
+        assertTrue(read1);
+        System.out.println("Read: " + read1);
+
+        boolean read2 = service.read(nurse1.nurseID);
+        assertTrue(read2);
+        System.out.println("Read: " + read2);
     }
 
     @Test
-    void c_update()
+    void update()
     {
         Nurse updated = new Nurse.BuilderNurse().copy(nurse2).setNurseName("Melanie").build();
         Assertions.assertNotNull(service.update(updated));
@@ -72,7 +76,7 @@ class NurseServiceTest {
     }
 
     @Test
-    void d_delete()
+    void delete()
     {
         boolean success = service.delete(nurse1.nurseID);
         assertTrue(success);
@@ -80,7 +84,7 @@ class NurseServiceTest {
     }
 
     @Test
-    void e_getAllNurse()
+    void getAllNurse()
     {
         System.out.println("Show All: ");
         System.out.println(service.getAllNurse());

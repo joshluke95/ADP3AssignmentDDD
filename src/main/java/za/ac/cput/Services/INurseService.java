@@ -11,7 +11,7 @@ import za.ac.cput.Repository.IRepository;
 
 import java.util.Set;
 
-public interface INurseService extends IRepository<Nurse, String>
+public interface INurseService extends IService<Nurse, String>
 {
     public Set<Nurse> getAllNurse();
 }

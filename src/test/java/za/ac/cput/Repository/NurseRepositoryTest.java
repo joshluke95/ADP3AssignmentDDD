@@ -6,8 +6,6 @@
 
 package za.ac.cput.Repository;
 
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -53,7 +51,7 @@ public class NurseRepositoryTest {
 
         assertNotNull(created1);
         assertNotNull(created2);
-        //assertEquals(created.getClass(), nurse.nurseID);
+
         System.out.println("Create: " + created1);
         System.out.println("Create: " + created2);
 
@@ -62,12 +60,12 @@ public class NurseRepositoryTest {
     @Test
     void read()
     {
-        Nurse read1 = repository.read(nurse1.nurseID);
-        Assertions.assertEquals(read1.nurseID, nurse1);
+        boolean read1 = repository.read(nurse1.nurseID);
+        assertTrue(read1);
         System.out.println("Read: " + read1);
 
-        Nurse read2 = repository.read(nurse2.nurseID);
-        Assertions.assertEquals(read1.nurseID, nurse2);
+        boolean read2 = repository.read(nurse2.nurseID);
+        assertTrue(read2);
         System.out.println("Read: " + read2);
     }
 

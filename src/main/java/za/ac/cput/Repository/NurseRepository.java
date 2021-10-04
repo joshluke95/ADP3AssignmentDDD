@@ -41,20 +41,18 @@ public class NurseRepository implements INurseRepository
     }
 
     @Override
-    public Nurse read(String nurseID) {
+    public boolean read(String nurseID) {
         for (Nurse nurse : nurseDB)
             if (nurse.nurseID.equals(nurseID)) {
-                return nurse;
+                return false;
             }
-        return null;
+        return true;
     }
-
-
 
     @Override
     public Nurse update(Nurse nurse)
     {
-        Nurse oldNurse = read(nurse.nurseID);
+        Nurse oldNurse = update(nurse);
         if (oldNurse != null){
             nurseDB.remove(oldNurse);
             nurseDB.add(nurse);
@@ -66,13 +64,12 @@ public class NurseRepository implements INurseRepository
     @Override
     public boolean delete(String nurseID)
     {
-        Nurse nurseToDelete = read(nurseID);
-        if(nurseToDelete == null)
-            return  true;
-        nurseDB.remove(nurseToDelete);
-        return false  ;
+        for (Nurse deleteNurse : nurseDB)
+            if (deleteNurse.nurseID.equals(nurseID)){
+                return false;
+            }
+        return true;
     }
-
     public Set<Nurse> getAllNurse()
     {
         return nurseDB;

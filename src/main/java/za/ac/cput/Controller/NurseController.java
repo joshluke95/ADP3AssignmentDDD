@@ -21,8 +21,8 @@ public class NurseController
     @Autowired
     private NurseService nurseService;
 
-    //@RequestMapping(value = "/create", method = RequestMethod.POST)
-    @PostMapping("/create")
+    //Create
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public Nurse create (@RequestBody Nurse nurse)
     {
         Nurse newNurse = NurseFactory.createNurse
@@ -40,28 +40,29 @@ public class NurseController
 
     }
 
-    @GetMapping("/read/{NurseId}")
-    public Nurse read (@PathVariable String NurseId)
+    //Read
+    @GetMapping("/read")
+    public boolean read (@RequestBody Nurse nurse)
     {
-        return nurseService.read(NurseId);
+        return nurseService.read(nurse.nurseID);
     }
 
+    //Update
     @PostMapping ("/update")
     public Nurse update (@RequestBody Nurse nurse)
     {
-        Nurse update = nurseService.update(nurse);
-        return update;
+        return this.nurseService.update(nurse);
+
     }
 
-    @DeleteMapping ("/delete/{NurseId}")
-    public String delete (@RequestBody Nurse nurse)
+    //Delete
+    @DeleteMapping ("/delete")
+    public boolean delete (@RequestBody Nurse nurse)
     {
-        if (nurseService.delete(nurse.nurseID))
-            return "Thanx for coming";
-        else
-            return "I'm still here";
+        return nurseService.delete(nurse.nurseID);
     }
 
+    //Get All
     @GetMapping ("/getall")
     public Set<Nurse> getAll()
     {

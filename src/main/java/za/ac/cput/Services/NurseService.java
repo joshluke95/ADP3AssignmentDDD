@@ -14,9 +14,10 @@ import java.util.Set;
 public class NurseService implements INurseService
 {
     private static NurseService service = null;
-    private NurseRepository repository = null;
 
-    private NurseService() { this.repository = NurseRepository.getRepository();}
+    private NurseService() {
+        NurseRepository.getRepository();
+    }
 
     public static NurseService getService(){
         if (service == null) {
@@ -27,26 +28,26 @@ public class NurseService implements INurseService
 
     @Override
     public Nurse create(Nurse nurse) {
-        return this.repository.create(nurse);
+        return this.service.create(nurse);
     }
 
     @Override
-    public Nurse read(String nurseID) {
-        return this.repository.read(nurseID);
+    public boolean read(String nurseID) {
+        return this.service.read(nurseID);
     }
 
     @Override
     public Nurse update(Nurse nurse) {
-        return this.repository.update(nurse);
+        return this.service.update(nurse);
     }
 
     @Override
     public boolean delete(String nurseID) {
-        return this.repository.delete(nurseID);
+        return this.service.delete(nurseID);
     }
 
     @Override
     public Set<Nurse> getAllNurse() {
-        return this.repository.getAllNurse();
+        return this.service.getAllNurse();
     }
 }

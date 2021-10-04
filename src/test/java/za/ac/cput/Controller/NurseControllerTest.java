@@ -52,7 +52,7 @@ public class NurseControllerTest
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private final String baseURL = "http://localhost:3306/nurse";
+    private final String baseURL = "http://localhost:8080/nurse";
 
     public static Nurse getNurse2()
     {
