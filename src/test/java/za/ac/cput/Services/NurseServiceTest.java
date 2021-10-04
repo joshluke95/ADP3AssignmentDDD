@@ -6,6 +6,7 @@
 
 package za.ac.cput.Services;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class NurseServiceTest {
     private static NurseService service = NurseService.getService();
-    private static Nurse nurse = NurseFactory.createNurse
+    private static Nurse nurse1 = NurseFactory.createNurse
             (
                     "950501",
                     "joshluke95",
@@ -45,31 +46,35 @@ class NurseServiceTest {
     @Test
     void a_create()
     {
+        Nurse created = service.create(nurse1);
         Nurse created2 = service.create(nurse2);
+
+        assertNotNull(created);
         assertNotNull(created2);
-        //assertEquals(created.getClass(), nurse.nurseID);
+
+        System.out.println("Create: " + created);
         System.out.println("Create: " + created2);
     }
 
     @Test
     void b_read() {
-        Nurse read = service.read(nurse.nurseID);
-        assertNotNull(read);
+        Nurse read = service.read(nurse1.nurseID);
+        Assertions.assertNotNull(read);
         System.out.println("Read: " + read);
     }
 
     @Test
     void c_update()
     {
-        Nurse updated = new Nurse.BuilderNurse().copy(nurse).setNurseName("Melanie").build();
-        assertNotNull(service.update(updated));
+        Nurse updated = new Nurse.BuilderNurse().copy(nurse2).setNurseName("Melanie").build();
+        Assertions.assertNotNull(service.update(updated));
         System.out.println("Update: " + updated);
     }
 
     @Test
     void d_delete()
     {
-        boolean success = service.delete(nurse.nurseID);
+        boolean success = service.delete(nurse1.nurseID);
         assertTrue(success);
         System.out.println("Delete: " + success);
     }

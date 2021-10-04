@@ -7,6 +7,7 @@
 package za.ac.cput.Repository;
 
 import za.ac.cput.Entity.Nurse;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +23,8 @@ public class NurseRepository implements INurseRepository
 
     public static NurseRepository getRepository()
     {
-        if (repository == null){
+        if (repository == null)
+        {
             repository = new NurseRepository();
         }
         return repository;
@@ -39,14 +41,15 @@ public class NurseRepository implements INurseRepository
     }
 
     @Override
-    public Nurse read(String nurseID)
-    {
+    public Nurse read(String nurseID) {
         for (Nurse nurse : nurseDB)
-            if (nurse.getClass().equals(nurseID)) {
+            if (nurse.nurseID.equals(nurseID)) {
                 return nurse;
             }
         return null;
     }
+
+
 
     @Override
     public Nurse update(Nurse nurse)
@@ -67,7 +70,7 @@ public class NurseRepository implements INurseRepository
         if(nurseToDelete == null)
             return  true;
         nurseDB.remove(nurseToDelete);
-        return false;
+        return false  ;
     }
 
     public Set<Nurse> getAllNurse()
