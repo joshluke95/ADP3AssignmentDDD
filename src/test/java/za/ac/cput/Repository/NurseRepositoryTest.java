@@ -13,13 +13,14 @@ import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Factory.NurseFactory;
 
+import static java.lang.System.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 public class NurseRepositoryTest {
-    private static NurseRepository repository = NurseRepository.getRepository();
+    private static final NurseRepository repository = NurseRepository.getRepository();
 
-    private static Nurse nurse1 = NurseFactory.createNurse
+    private static final Nurse nurse1 = NurseFactory.createNurse
             (
                     "950501",
                     "joshluke95",
@@ -31,7 +32,7 @@ public class NurseRepositoryTest {
                     26
             );
 
-    private static Nurse nurse2 = NurseFactory.createNurse
+    private static final Nurse nurse2 = NurseFactory.createNurse
             (
                     "950812",
                     "wesmichael95",
@@ -44,51 +45,45 @@ public class NurseRepositoryTest {
             );
 
     @Test
-    void create()
-    {
+    void Create() {
         Nurse created1 = repository.create(nurse1);
         Nurse created2 = repository.create(nurse2);
 
         assertNotNull(created1);
         assertNotNull(created2);
 
-        System.out.println("Create: " + created1);
-        System.out.println("Create: " + created2);
-
+        out.println("Create: " + created1);
+        out.println("Create: " + created2);
     }
 
     @Test
-    void read()
-    {
+    void Read() {
         boolean read1 = repository.read(nurse1.nurseID);
         assertTrue(read1);
-        System.out.println("Read: " + read1);
+        out.println("Read: " + read1);
 
         boolean read2 = repository.read(nurse2.nurseID);
         assertTrue(read2);
-        System.out.println("Read: " + read2);
+        out.println("Read: " + read2);
     }
 
     @Test
-    void update()
-    {
+    void Update() {
         Nurse updated = new Nurse.BuilderNurse().copy(nurse2).setNurseName("Wesley").build();
         assertNotNull(repository.update(updated));
-        System.out.println("Update: " + updated);
+        out.println("Update: " + updated);
     }
 
     @Test
-    void delete()
-    {
+    void Delete() {
         boolean success = repository.delete(nurse1.nurseID);
         assertTrue(success);
-        System.out.println("Delete: " + success);
+        out.println("Delete: " + success);
     }
 
     @Test
-    void getAllNurse()
-    {
-        System.out.println("Show All:");
-        System.out.println(repository.getAllNurse());
+    void GetAllNurse() {
+        out.println("Show All:");
+        out.println(repository.getAllNurse());
     }
 }

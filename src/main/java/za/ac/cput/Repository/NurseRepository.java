@@ -52,13 +52,10 @@ public class NurseRepository implements INurseRepository
     @Override
     public Nurse update(Nurse nurse)
     {
-        Nurse oldNurse = update(nurse);
-        if (oldNurse != null){
-            nurseDB.remove(oldNurse);
-            nurseDB.add(nurse);
-            return null;
-        }
-        return nurse;
+        boolean update = nurseDB.remove(nurse);
+        if (!update)
+            return nurse;
+        return null ;
     }
 
     @Override

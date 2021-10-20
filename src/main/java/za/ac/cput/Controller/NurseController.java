@@ -22,7 +22,8 @@ public class NurseController
     private NurseService nurseService;
 
     //Create
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    //@RequestMapping(value = "/create", method = RequestMethod.POST)
+    @PostMapping("/create")
     public Nurse create (@RequestBody Nurse nurse)
     {
         Nurse newNurse = NurseFactory.createNurse
@@ -41,10 +42,10 @@ public class NurseController
     }
 
     //Read
-    @GetMapping("/read")
-    public boolean read (@RequestBody Nurse nurse)
+    @GetMapping("/read/{id}")
+    public boolean read (@PathVariable Nurse id)
     {
-        return nurseService.read(nurse.nurseID);
+        return nurseService.read(id.nurseID);
     }
 
     //Update
@@ -56,10 +57,10 @@ public class NurseController
     }
 
     //Delete
-    @DeleteMapping ("/delete")
-    public boolean delete (@RequestBody Nurse nurse)
+    @DeleteMapping ("/delete/{id}\"")
+    public boolean delete (@PathVariable Nurse id)
     {
-        return nurseService.delete(nurse.nurseID);
+        return nurseService.delete(id.nurseID);
     }
 
     //Get All

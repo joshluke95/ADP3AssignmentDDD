@@ -10,6 +10,7 @@ public class Nurse {
     public String nurseID, nurseUsername, nursePassword, nurseName, nurseGender, nurseAddress,nurseContactNumber;
     public int nurseAge;
 
+    public Nurse() {}
 
     public Nurse(BuilderNurse builder)
     {

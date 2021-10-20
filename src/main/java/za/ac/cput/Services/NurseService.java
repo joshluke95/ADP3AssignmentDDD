@@ -6,17 +6,20 @@
 
 package za.ac.cput.Services;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Repository.NurseRepository;
 
 import java.util.Set;
 
+@Service
 public class NurseService implements INurseService
 {
     private static NurseService service = null;
+    private static NurseRepository repository = null;
 
     private NurseService() {
-        NurseRepository.getRepository();
+        repository = NurseRepository.getRepository();
     }
 
     public static NurseService getService(){
@@ -27,27 +30,31 @@ public class NurseService implements INurseService
     }
 
     @Override
-    public Nurse create(Nurse nurse) {
-        return this.service.create(nurse);
+    public Nurse create(Nurse nurse)
+    {
+        return repository.create(nurse);
     }
 
     @Override
-    public boolean read(String nurseID) {
-        return this.service.read(nurseID);
+    public boolean read(String nurseID)
+    {
+        return repository.read(nurseID);
     }
 
     @Override
-    public Nurse update(Nurse nurse) {
-        return this.service.update(nurse);
+    public Nurse update(Nurse nurse)
+    {
+        return repository.update(nurse);
     }
 
     @Override
     public boolean delete(String nurseID) {
-        return this.service.delete(nurseID);
+        return repository.delete(nurseID);
     }
 
     @Override
-    public Set<Nurse> getAllNurse() {
-        return this.service.getAllNurse();
+    public Set<Nurse> getAllNurse()
+    {
+        return repository.getAllNurse();
     }
 }

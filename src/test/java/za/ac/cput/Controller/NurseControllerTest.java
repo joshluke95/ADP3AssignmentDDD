@@ -19,6 +19,8 @@ import org.springframework.http.ResponseEntity;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Factory.NurseFactory;
 
+import java.util.Objects;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
@@ -82,7 +84,7 @@ public class NurseControllerTest
         String url = baseURL + "/read/" + nurse.nurseID;
         System.out.println("URL: " + url);
         ResponseEntity<Nurse> response = restTemplate.getForEntity(url, Nurse.class);
-        assertEquals(nurse.nurseID, response.getBody().nurseID);
+        assertEquals(nurse.nurseID, Objects.requireNonNull(response.getBody()).nurseID);
     }
 
     @Test

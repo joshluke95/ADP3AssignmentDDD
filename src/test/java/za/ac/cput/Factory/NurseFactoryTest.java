@@ -63,6 +63,7 @@ class NurseFactoryTest {
 
    @Test
     void fail(){
+       System.out.println("This test is meant to fail");
    }
 
    @Test

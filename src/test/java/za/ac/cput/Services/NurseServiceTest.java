@@ -15,11 +15,10 @@ import za.ac.cput.Factory.NurseFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class NurseServiceTest {
-    private static NurseService service = NurseService.getService();
-    private static Nurse nurse1 = NurseFactory.createNurse
+    private static final NurseService service = NurseService.getService();
+    private static final Nurse nurse1 = NurseFactory.createNurse
             (
                     "950501",
                     "joshluke95",
@@ -31,7 +30,7 @@ class NurseServiceTest {
                     26
             );
 
-    private static Nurse nurse2 = NurseFactory.createNurse
+    private static final Nurse nurse2 = NurseFactory.createNurse
             (
                     "950812",
                     "wesmichael95",

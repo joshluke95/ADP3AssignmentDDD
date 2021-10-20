@@ -6,14 +6,10 @@
 
 package za.ac.cput.Controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@SpringBootApplication(scanBasePackages = "za")
 public class MainEntryPoint
 {
-    public static void MainEntryPoint(String[] args)
-    {
-       SpringApplication.run(MainEntryPoint.class, args);
-    }
+   @RequestMapping({"/", "/home"})
+   public String home() { return "Hospital Management System"; }
 }
