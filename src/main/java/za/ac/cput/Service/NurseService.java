@@ -4,13 +4,15 @@
    Date: 15 August 2021
  */
 
-package za.ac.cput.Services;
+package za.ac.cput.Service;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Repository.NurseRepository;
 
 import java.util.Set;
 
+@Service
 public class NurseService implements INurseService
 {
     private static NurseService service = null;

@@ -4,13 +4,14 @@
    Date: 10 June 2021
  */
 
-package za.ac.cput.Services;
+package za.ac.cput.Service;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Factory.NurseFactory;
+import za.ac.cput.Service.NurseService;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="ISO-8859-1">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+    <title>Hospital Management System</title>
+</head>
+<body>
+<div class="container">
+    <h1>Hospital Management System</h1>
+    <hr>
+    <h2>Save Doctor</h2>
+
+    <form action="#" th:action="@{/create}" th:object="${doctor}"
+          method="POST">
+
+        <input type="text" th:field="*{id}"
+               placeholder="Doctor Id" class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{name}"
+               placeholder="Doctor First Name" class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{lastname}"
+               placeholder="Doctor Last Name" class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{age}" placeholder="Doctor age"
+               class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{gender}"
+               placeholder="Doctor gender" class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{phone_number}"
+               placeholder="Doctor phone_number" class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{address}" placeholder="Doctor address"
+               class="form-control mb-4 col-5">
+
+        <input type="text" th:field="*{username}" placeholder="Doctor username"
+               class="form-control mb-4 col-5">
+
+        <input type="password" th:field="*{password}" placeholder="Doctor password"
+               class="form-control mb-4 col-5">
+
+
+        <button type="Submit" class="btn btn-info col-2">Save
+            Doctor</button>
+
+    </form>
+
+    <hr>
+
+    <a th:href ="@{/}">Back to Doctor List</a>
+</div>
+
+</body>
+</html>

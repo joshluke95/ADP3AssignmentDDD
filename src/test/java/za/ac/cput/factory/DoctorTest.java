@@ -56,7 +56,7 @@ class DoctorTest {
         try{
             TimeUnit.SECONDS.sleep(4);
             if (build1 != null){
-                build1.setid(1);
+                build1.setid("d01");
                 build1.setname("Liyabona");
                 build1.setlastname("Saki");
                 build1.setage(23);

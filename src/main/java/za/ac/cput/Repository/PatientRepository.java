@@ -34,7 +34,7 @@ public class PatientRepository implements IPatientRepository
     {
         boolean success = patientDB.add(patient);
         if (!success)
-                return null;
+            return null;
         return patient;
     }
 
@@ -42,10 +42,10 @@ public class PatientRepository implements IPatientRepository
     public Patient read(String patID)
     {
         for (Patient p : patientDB)
-        if (p.getPatID().equals(patID))
-        {
-            return p;
-        }
+            if (p.getPatID().equals(patID))
+            {
+                return p;
+            }
         return null;
     }
 
@@ -76,6 +76,6 @@ public class PatientRepository implements IPatientRepository
 
     public Set<Patient> getAllPatient()
     {
-    return patientDB;
+        return patientDB;
     }
 }

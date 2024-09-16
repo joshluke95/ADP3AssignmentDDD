@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+#Author : Liyabona Saki
+#Version : 1.0
+#Description : Dockerfile for deployment
+
+MAINTAINER Liyabona Saki
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD target/SpringBootEmployeeSystem-0.0.1-SNAPSHOT.jar app.jar
+=======
+MAINTAINER Liyabona Saki
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ADD target/ADP3AssignmentDDD.jar app.jar
+>>>>>>> 217120830
+ENTRYPOINT ["java","-jar","/app.jar"]

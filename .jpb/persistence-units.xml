@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default">
+        <packages>
+          <package value="za.ac.cput.Controller" />
+<<<<<<< HEAD
+          <package value="" />
+=======
+>>>>>>> 217120830
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

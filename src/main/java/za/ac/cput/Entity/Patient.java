@@ -18,6 +18,11 @@ public class Patient
     private String patBloodType;
     private String patCovidStatus;
 
+    public Patient()
+    {
+
+    }
+
     public String getPatID()
     {
         return patID;

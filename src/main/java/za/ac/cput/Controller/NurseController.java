@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.Entity.Nurse;
 import za.ac.cput.Factory.NurseFactory;
-import za.ac.cput.Services.NurseService;
+import za.ac.cput.Service.NurseService;
 
 import java.util.Set;
 

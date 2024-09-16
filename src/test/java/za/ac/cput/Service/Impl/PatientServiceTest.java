@@ -1,24 +1,25 @@
-/* PatientRepositoryTest.java
- Class for the PatientFactoryTest
+/* PatientServiceTest.java
+ Class for the PatientServiceTest
  Author: Bilqees Saban (219090866)
-  Date: 24 July 2021
+  Date: 29 July 2021
 */
 
-package za.ac.cput.Repository;
+        package za.ac.cput.Service.Impl;
 
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import za.ac.cput.Entity.Patient;
-import za.ac.cput.Factory.PatientFactory;
+        import org.junit.jupiter.api.MethodOrderer;
+        import org.junit.jupiter.api.Test;
+        import org.junit.jupiter.api.TestMethodOrder;
+        import za.ac.cput.Entity.Patient;
+        import za.ac.cput.Factory.PatientFactory;
+        import za.ac.cput.Repository.PatientRepository;
+        import za.ac.cput.Service.PatientService;
 
-import static org.junit.jupiter.api.Assertions.*;
+        import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-
-public class PatientRepositoryTest
+class PatientServiceTest
 {
-    private static PatientRepository repository = PatientRepository.getRepository();
+    private static PatientService service = PatientService.getService();
     private static Patient patient = PatientFactory.createPatient
             (
                     "P01",
@@ -47,8 +48,8 @@ public class PatientRepositoryTest
     @Test
     void a_createPatient()
     {
-        Patient created = repository.create(patient);
-        Patient created2 = repository.create(patient2);
+        Patient created = service.create(patient);
+        Patient created2 = service.create(patient2);
         assertEquals(created.getPatID(), patient.getPatID());
         System.out.println("Create: " + created);
     }
@@ -56,7 +57,7 @@ public class PatientRepositoryTest
     @Test
     void b_readPatient()
     {
-        Patient read = repository.read(patient.getPatID());
+        Patient read = service.read(patient.getPatID());
         assertNotNull(read);
         System.out.println("Read: " + read);
     }
@@ -64,15 +65,15 @@ public class PatientRepositoryTest
     @Test
     void c_updatePatient()
     {
-        Patient updated = new Patient.Builder().copy(patient).setPatFirstName("Jeff").build();
-        assertNotNull(repository.update(updated));
-        System.out.println("Update:" + updated);
+        Patient updated = new Patient.Builder().copy(patient).setPatFirstName("Billie").build();
+        assertNotNull(service.update(updated));
+        System.out.println("Update: " + updated);
     }
 
     @Test
     void d_deletePatient()
     {
-        boolean success = repository.delete(patient.getPatID());
+        boolean success = service.delete(patient.getPatID());
         assertTrue (success);
         System.out.println("Delete:" + success);
     }
@@ -82,7 +83,6 @@ public class PatientRepositoryTest
 
     {
         System.out.println("Show All:");
-        System.out.println(repository.getAllPatient());
+        System.out.println(service.getAllPatient());
     }
-
 }
